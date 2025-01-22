@@ -4,18 +4,25 @@ import Auth from "./components/Auth/Auth"
 import Profile from './components/Profile/Profile';
 import Catalog from './components/Catalog/Catalog';
 import RequestPage from './components/RequestPage/RequestPage';
+import { useState } from "react";
 
 function App() {
 
+  const [isAuth, setIsAuth] = useState(false);
+
   return (
-      <Layout>
-        <Routes>
+    <Layout>
+      <Routes>
+        {isAuth ?
+          <Route path="/" element={<Profile />} />
+          :
           <Route path="/" element={<Auth />} />
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/catalog" element={<Catalog />} />
-          <Route path="/request-page" element={<RequestPage />} />
-        </Routes>
-      </Layout>
+        }
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/catalog" element={<Catalog />} />
+        <Route path="/request-page" element={<RequestPage />} />
+      </Routes>
+    </Layout>
   )
 }
 
