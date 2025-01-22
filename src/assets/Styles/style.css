@@ -229,6 +229,13 @@ body {
   color: var(--light-gray-color);
   background-color: white;
 }
+.form__visibility-button {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
 .form__button {
   margin-top: 10px;
 }/*# sourceMappingURL=style.css.map */

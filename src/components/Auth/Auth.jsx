@@ -1,4 +1,11 @@
+import { useState } from "react";
+import eyeIconUrl from '../../assets/Images/Icons/eye-icon.svg';
+
+
 export default function Auth() {
+
+    const [passwordVisible, setPasswordVisible] = useState(false);
+
     return (
         <div className="auth">
             <div className="auth__section">
@@ -11,7 +18,14 @@ export default function Auth() {
                     </div>
                     <div className="form__input-wrapper">
                         <label className="form__label" htmlFor="password" >Пароль</label>
-                        <input type="password" className="form__input" placeholder="Введите пароль" name="password" />
+                        <input type={passwordVisible ? "text" : "password"} className="form__input" placeholder="Введите пароль" name="password" />
+                        <button
+                            type="button"
+                            className="form__visibility-button"
+                            onClick={() => { setPasswordVisible(!passwordVisible) }}
+                        >
+                            <img src={eyeIconUrl} alt="" />
+                        </button>
                     </div>
                     <button type="submit" className="form__button button button-accent">Войти</button>
                 </form>
